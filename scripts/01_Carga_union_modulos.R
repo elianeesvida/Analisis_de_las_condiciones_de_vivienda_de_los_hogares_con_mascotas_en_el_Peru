@@ -33,7 +33,12 @@ mod118 <- import(
 mod100 <- mod100 %>% clean_names()
 mod118 <- mod118 %>% clean_names()
 
-
+#4. Filtro de cobertura temporal--------------------
+#mod118 solo se aplicó de julio a diciembre 2025. Como el proyecto es
+#sobre mascotas, restringimos mod100 al mismo periodo,
+#para que el cruce represente un mismo momento de recolección de datos
+#en vez de mezclar hogares que nunca pudieron tener esa información.
+mod100 <- mod100 %>% filter(mes >= "07")
 
 
 

@@ -13,5 +13,24 @@ library(readr)
 renv::snapshot()
 
 #2. Importar datos--------------------
-mod100 <- import("datos/crudos/Enaho01-2025-100.csv", encoding = "Latin-1")
-mod118 <- import("datos/crudos/Enaho01-2025-118.csv", encoding = "Latin-1")
+mod100 <- import(
+  "datos/crudos/Enaho01-2025-100.csv",
+  encoding = "Latin-1", sep = ";", dec = ",",
+  na.strings = c("", " ", "NA"),
+  colClasses = c(CONGLOME = "character", VIVIENDA = "character",
+                 HOGAR = "character", UBIGEO = "character")
+)
+
+mod118 <- import(
+  "datos/crudos/Enaho01-2025-118.csv",
+  encoding = "Latin-1", sep = ";", dec = ",",
+  na.strings = c("", " ", "NA"),
+  colClasses = c(CONGLOME = "character", VIVIENDA = "character",
+                 HOGAR = "character", UBIGEO = "character")
+)
+
+
+
+
+
+

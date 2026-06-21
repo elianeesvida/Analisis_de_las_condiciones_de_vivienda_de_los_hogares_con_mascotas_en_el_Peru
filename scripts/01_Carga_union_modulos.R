@@ -70,7 +70,7 @@ renv::snapshot()
 
 write_parquet(enaho_2025_mascotas, "datos/procesados/enaho_2025_210626.parquet")
 
-
+renv::snapshot()
 
 
 

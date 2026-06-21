@@ -29,6 +29,9 @@ mod118 <- import(
                  HOGAR = "character", UBIGEO = "character")
 )
 
+#3. Limpieza de nombres de columnas--------------------
+mod100 <- mod100 %>% clean_names()
+mod118 <- mod118 %>% clean_names()
 
 
 

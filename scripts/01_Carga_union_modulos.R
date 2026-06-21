@@ -38,7 +38,7 @@ mod118 <- mod118 %>% clean_names()
 #sobre mascotas, restringimos mod100 al mismo periodo,
 #para que el cruce represente un mismo momento de recolección de datos
 #en vez de mezclar hogares que nunca pudieron tener esa información.
-mod100 <- mod100 %>% filter(mes >= "07")
+mod100 <- mod100 %>% filter(mes >= "7")
 
 
 

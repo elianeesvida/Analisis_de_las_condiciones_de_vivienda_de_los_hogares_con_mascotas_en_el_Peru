@@ -79,12 +79,26 @@ reporte_nas <- enaho_seleccion %>%
 
 write_csv(reporte_nas, "outputs/Reporte_Datos_Perdidos_Mascotas.csv")
 
+# ------------------------------------------------------------------------------
+# 3. DIAGNÓSTICO PREVIO DE NAs EN VARIABLES NBI---------------------------------
+# ------------------------------------------------------------------------------
+table(enaho_seleccion$nbi1, useNA = "ifany")
+table(enaho_seleccion$nbi2, useNA = "ifany")
+table(enaho_seleccion$nbi3, useNA = "ifany")
+
+# RESULTADO: Las tres variables NBI presentan únicamente valores 0 y 1,
+# sin ningún NA. Los NAs que existían originalmente no representaban
+# datos perdidos, sino hogares que no fueron seleccionados para el
+# módulo 118, al ser este una sub-muestra aplicada por primera vez
+# en el segundo semestre de 2025. Al restringir el universo de análisis
+# a los hogares elegibles (filter(!is.na(tiene_mascota))), estos casos
+# fueron excluidos correctamente sin necesidad de imputación.
+# DECISIÓN: No se requiere ningún tratamiento de NAs para nbi1, nbi2 y nbi3.
 
 
-
-
-
-
-
+# ------------------------------------------------------------------------------
+# 5. EXPORTACIÓN DE LA BASE ACONDICIONADA---------------------------------------
+# ------------------------------------------------------------------------------
+write_parquet(enaho_seleccion, "datos/procesados/enaho_mascotas_acondicionada_030726.parquet")
 
 

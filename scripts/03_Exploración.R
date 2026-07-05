@@ -308,4 +308,83 @@ plot_nbi <- enaho_explorar %>%
   theme(legend.position = "bottom")
 print(plot_nbi)
 
+# ==============================================================================
+# SECCIÓN 4: ¿LAS CONDICIONES VARÍAN SEGÚN TIPO DE MASCOTA?-------------------
+# Propósito: Identificar si existen diferencias en las condiciones de vivienda
+# entre hogares con perro, gato u otra mascota. Si hay variación, justifica
+# usar el tipo de mascota como variable de análisis en la clasificación.
+# ==============================================================================
+
+# Tabla 5: % de NBI insatisfecha según tipo de mascota
+tabla_nbi_tipo <- enaho_explorar %>%
+  filter(tiene_mascota == TRUE) %>%
+  select(conglome, estrato, factor_s,
+         tiene_perro, tiene_gato, tiene_otra_mascota,
+         nbi1, nbi2, nbi3) %>%
+  pivot_longer(cols = c(tiene_perro, tiene_gato, tiene_otra_mascota),
+               names_to = "Tipo_mascota", values_to = "Tiene") %>%
+  filter(Tiene == TRUE) %>%
+  pivot_longer(cols = c(nbi1, nbi2, nbi3),
+               names_to = "NBI", values_to = "Valor") %>%
+  mutate(
+    Tipo_mascota = case_when(
+      Tipo_mascota == "tiene_perro"        ~ "Perro",
+      Tipo_mascota == "tiene_gato"         ~ "Gato",
+      Tipo_mascota == "tiene_otra_mascota" ~ "Otra mascota"
+    ),
+    NBI = case_when(
+      NBI == "nbi1" ~ "NBI 1: Vivienda inadecuada",
+      NBI == "nbi2" ~ "NBI 2: Hacinamiento",
+      NBI == "nbi3" ~ "NBI 3: Sin servicios higiénicos"
+    )
+  ) %>%
+  as_survey_design(ids = conglome, strata = estrato,
+                   weights = factor_s, nest = TRUE) %>%
+  group_by(Tipo_mascota, NBI) %>%
+  summarise(Pct = survey_mean(Valor, vartype = NULL) * 100) %>%
+  mutate(Pct = paste0(round(Pct, 1), "%")) %>%
+  pivot_wider(names_from = NBI, values_from = Pct) %>%
+  rename(`Tipo de mascota` = Tipo_mascota)
+
+ft_nbi_tipo <- formato_flextable(tabla_nbi_tipo,
+                                 "Tabla 5. % de hogares con NBI insatisfecha según tipo de mascota, 2025")
+print(ft_nbi_tipo)
+
+# Gráfico 4: NBI por tipo de mascota
+plot_nbi_tipo <- enaho_explorar %>%
+  filter(tiene_mascota == TRUE) %>%
+  select(factor_s, tiene_perro, tiene_gato, tiene_otra_mascota,
+         nbi1, nbi2, nbi3) %>%
+  pivot_longer(cols = c(tiene_perro, tiene_gato, tiene_otra_mascota),
+               names_to = "Tipo_mascota", values_to = "Tiene") %>%
+  filter(Tiene == TRUE) %>%
+  pivot_longer(cols = c(nbi1, nbi2, nbi3),
+               names_to = "NBI", values_to = "Valor") %>%
+  mutate(
+    Tipo_mascota = case_when(
+      Tipo_mascota == "tiene_perro"        ~ "Perro",
+      Tipo_mascota == "tiene_gato"         ~ "Gato",
+      Tipo_mascota == "tiene_otra_mascota" ~ "Otra mascota"
+    ),
+    NBI = case_when(
+      NBI == "nbi1" ~ "NBI 1:\nVivienda inadecuada",
+      NBI == "nbi2" ~ "NBI 2:\nHacinamiento",
+      NBI == "nbi3" ~ "NBI 3:\nSin servicios higiénicos"
+    ),
+    Valor = factor(Valor, levels = c(0, 1),
+                   labels = c("Satisfecha", "Insatisfecha"))
+  ) %>%
+  ggplot(aes(x = Tipo_mascota, fill = Valor, weight = factor_s)) +
+  geom_bar(position = "fill", alpha = 0.85) +
+  facet_wrap(~NBI) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("Satisfecha" = "#4575B4", "Insatisfecha" = "#D73027")) +
+  labs(title   = "Gráfico 4. Condiciones de vivienda (NBI) según tipo de mascota, 2025",
+       x       = "Tipo de mascota",
+       y       = "Proporción de hogares",
+       fill    = "Necesidad básica:",
+       caption = "Fuente: ENAHO 2025 - Módulo 118.") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+print(plot_nbi_tipo)
 

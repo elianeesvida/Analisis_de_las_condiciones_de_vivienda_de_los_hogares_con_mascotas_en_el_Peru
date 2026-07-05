@@ -92,4 +92,19 @@ print(tabla_cobertura)
 # especialmente en el análisis por área geográfica.
 
 
+# ------------------------------------------------------------------------------
+# 2. DISEÑO MUESTRAL-----------------------------------------------------------
+# ------------------------------------------------------------------------------
+# Diseño completo (todas las observaciones)
+enaho_diseno <- enaho_explorar %>%
+  filter(!is.na(factor_s)) %>%
+  as_survey_design(ids = conglome, strata = estrato,
+                   weights = factor_s, nest = TRUE)
+
+# Diseño restringido a hogares CON mascota (secciones 3, 4 y 5)
+enaho_diseno_mascotas <- enaho_explorar %>%
+  filter(!is.na(factor_s) & tiene_mascota == TRUE) %>%
+  as_survey_design(ids = conglome, strata = estrato,
+                   weights = factor_s, nest = TRUE)
+
 

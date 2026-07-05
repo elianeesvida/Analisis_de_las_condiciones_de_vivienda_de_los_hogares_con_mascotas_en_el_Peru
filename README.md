@@ -1,11 +1,11 @@
-#README: Análisis de la calidad de la vivienda de los hogares con mascotas en el Perú
-##Autor: Eliane Caceres
-##Curso: Taller de Procesamiento de Datos (1SOC03)
-##Encuesta: Encuesta Nacional de Hogares, Instituto Nacional de Estadística e Informática, 2025
-##Módulos utilizados: 
+# README: Análisis de la calidad de la vivienda de los hogares con mascotas en el Perú
+## Autor: Eliane Caceres
+## Curso: Taller de Procesamiento de Datos (1SOC03)
+## Encuesta: Encuesta Nacional de Hogares, Instituto Nacional de Estadística e Informática, 2025
+## Módulos utilizados: 
 - **Módulo 100** – Características de la Vivienda y del Hogar
 - **Módulo 118** – Crianza de Mascotas en el Hogar
-##Unidad de análisis: Hogar (hogares que respondieron el módulo 118)
+## Unidad de análisis: Hogar (hogares que respondieron el módulo 118)
 
 ## Descripción del proyecto
 Este repositorio incluye el código y el flujo de trabajo completo del proyecto "Análisis de la calidad de la vivienda de los hogares con mascotas en el Perú", elaborado para el curso de Taller de Procesamiento de Datos 2026-1 de la PUCP. Se utilizan datos de la Encuesta Nacional de Hogares (ENAHO) 2025 trabajados íntegramente en R versión 4.4.1. La versión de todas las librerías se controla utilizando renv.

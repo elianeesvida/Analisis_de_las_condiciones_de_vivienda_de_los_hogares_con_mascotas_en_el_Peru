@@ -1,5 +1,5 @@
 # ==============================================================================
-# Proyecto:  Análisis de las condiciones de vivienda de los hogares con mascotas en el Perú
+# Proyecto:  Análisis de la calidad de la vivienda de los hogares con mascotas en el Perú
 # Script: Acondicionamiento
 # Autor: Eliane Caceres
 # Fecha: 03-07-2026

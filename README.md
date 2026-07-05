@@ -1,4 +1,4 @@
-# Analisis de la tenencia de mascotas en los hogares peruanos con datos de la ENAHO
+# Análisis de la calidad de la vivienda de los hogares con mascotas en el Perú
 
 ## Descripción del proyecto
 

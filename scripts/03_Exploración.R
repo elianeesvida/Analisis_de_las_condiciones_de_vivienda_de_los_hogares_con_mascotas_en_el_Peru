@@ -7,3 +7,20 @@
 #           condiciones de vivienda (NBI) a nivel nacional y por área
 # ==============================================================================
 
+rm(list = ls())
+
+# ------------------------------------------------------------------------------
+# 0. CONFIGURACIÓN Y CARGA DE DATOS--------------------------------------------
+# ------------------------------------------------------------------------------
+library(tidyverse)
+library(arrow)
+library(survey)
+library(srvyr)
+library(flextable)
+library(scales)
+library(officer)
+library(here)
+renv::snapshot()
+
+enaho_mascotas <- read_parquet(here("datos", "procesados", "enaho_mascotas_acondicionada_030726.parquet"))
+

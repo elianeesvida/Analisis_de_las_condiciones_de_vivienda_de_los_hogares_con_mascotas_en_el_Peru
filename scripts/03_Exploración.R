@@ -125,3 +125,100 @@ formato_flextable <- function(tabla, titulo) {
     hline_bottom(part = "body",   border = officer::fp_border(width = 1)) %>%
     hline_bottom(part = "footer", border = officer::fp_border(width = 0))
 }
+
+# ==============================================================================
+# SECCIÓN 1: ¿CUÁNTOS HOGARES TIENEN MASCOTAS?---------------------------------
+# Propósito: Justificar el tamaño y representatividad del universo de análisis.
+# Si la proporción de hogares con mascota es pequeña, el análisis posterior
+# debe interpretarse con cautela.
+# ==============================================================================
+
+# Tabla 1
+tabla_mascota <- enaho_diseno %>%
+  filter(!is.na(tiene_mascota_etiqueta)) %>%
+  group_by(tiene_mascota_etiqueta) %>%
+  summarise(Hogares    = survey_total(vartype = NULL),
+            Porcentaje = survey_mean(vartype = NULL) * 100) %>%
+  mutate(Hogares    = scales::comma(round(Hogares, 0)),
+         Porcentaje = paste0(round(Porcentaje, 1), "%")) %>%
+  rename(`Tenencia de mascota` = tiene_mascota_etiqueta,
+         `Total (N)` = Hogares, `%` = Porcentaje)
+
+ft_mascota <- formato_flextable(tabla_mascota,
+                                "Tabla 1. Hogares según tenencia de mascotas, 2025")
+print(ft_mascota)
+
+# Gráfico 1
+plot_mascota <- ggplot(
+  enaho_explorar %>% filter(!is.na(tiene_mascota)),
+  aes(x = tiene_mascota_etiqueta, weight = factor_s)) +
+  geom_bar(fill = "#4A7C59", alpha = 0.85) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title   = "Gráfico 1. Hogares según tenencia de mascotas, 2025",
+       x       = "Tenencia de mascota",
+       y       = "Hogares (frecuencia poblacional)",
+       caption = "Fuente: ENAHO 2025") +
+  theme_minimal()
+print(plot_mascota)
+
+# ==============================================================================
+# SECCIÓN 2: ¿QUÉ TIPO DE MASCOTAS TIENEN?------------------------------------
+# Propósito: Verificar que hay suficientes casos en cada grupo (perro, gato,
+# otra mascota) para que la comparación en la sección 4 sea estadísticamente
+# válida. Si algún grupo tiene muy pocos casos, la comparación no sería robusta.
+# ==============================================================================
+
+# Tabla 2
+tabla_tipo_mascota <- enaho_explorar %>%
+  filter(tiene_mascota == TRUE) %>%
+  select(conglome, estrato, factor_s,
+         tiene_perro, tiene_gato, tiene_otra_mascota) %>%
+  pivot_longer(cols = c(tiene_perro, tiene_gato, tiene_otra_mascota),
+               names_to = "Tipo", values_to = "Tiene") %>%
+  filter(Tiene == TRUE) %>%
+  as_survey_design(ids = conglome, strata = estrato,
+                   weights = factor_s, nest = TRUE) %>%
+  group_by(Tipo) %>%
+  summarise(Hogares = survey_total(vartype = NULL)) %>%
+  mutate(
+    Porcentaje = (Hogares / sum(enaho_explorar %>%
+                                  filter(tiene_mascota == TRUE) %>%
+                                  pull(factor_s), na.rm = TRUE)) * 100,
+    Hogares    = scales::comma(round(Hogares, 0)),
+    Porcentaje = paste0(round(Porcentaje, 1), "%"),
+    Tipo = case_when(
+      Tipo == "tiene_perro"        ~ "Perro",
+      Tipo == "tiene_gato"         ~ "Gato",
+      Tipo == "tiene_otra_mascota" ~ "Otra mascota"
+    )
+  ) %>%
+  arrange(desc(parse_number(str_remove(Hogares, ",")))) %>%
+  rename(`Tipo de mascota` = Tipo, `Hogares (N)` = Hogares, `%` = Porcentaje)
+
+ft_tipo_mascota <- formato_flextable(tabla_tipo_mascota,
+                                     "Tabla 2. Hogares con mascotas según tipo de animal, 2025")
+print(ft_tipo_mascota)
+
+# Gráfico 2
+plot_tipo_mascota <- enaho_explorar %>%
+  filter(tiene_mascota == TRUE) %>%
+  select(factor_s, tiene_perro, tiene_gato, tiene_otra_mascota) %>%
+  pivot_longer(cols = c(tiene_perro, tiene_gato, tiene_otra_mascota),
+               names_to = "Tipo", values_to = "Tiene") %>%
+  filter(Tiene == TRUE) %>%
+  mutate(Tipo = case_when(
+    Tipo == "tiene_perro"        ~ "Perro",
+    Tipo == "tiene_gato"         ~ "Gato",
+    Tipo == "tiene_otra_mascota" ~ "Otra mascota"
+  )) %>%
+  ggplot(aes(x = reorder(Tipo, -factor_s), weight = factor_s)) +
+  geom_bar(fill = "#2E5B88", alpha = 0.85) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title   = "Gráfico 2. Hogares con mascotas según tipo de animal, 2025",
+       x       = "Tipo de mascota",
+       y       = "Hogares (frecuencia poblacional)",
+       caption = "Fuente: ENAHO 2025") +
+  theme_minimal()
+print(plot_tipo_mascota)
+
+

@@ -388,3 +388,81 @@ plot_nbi_tipo <- enaho_explorar %>%
   theme(legend.position = "bottom")
 print(plot_nbi_tipo)
 
+# ==============================================================================
+# SECCIÓN 5: ¿HAY DIFERENCIAS ENTRE ÁREA URBANA Y RURAL?----------------------
+# Propósito: Verificar si el área geográfica es una variable de contexto
+# relevante. Si las condiciones de vivienda difieren significativamente
+# entre urbano y rural, el área debe considerarse en la clasificación.
+# ==============================================================================
+
+# Tabla 6: Tenencia de mascotas según área
+tabla_mascota_area <- enaho_diseno %>%
+  filter(!is.na(area) & !is.na(tiene_mascota_etiqueta)) %>%
+  group_by(area, tiene_mascota_etiqueta) %>%
+  summarise(Hogares = survey_total(vartype = NULL)) %>%
+  group_by(area) %>%
+  mutate(
+    Porcentaje = (Hogares / sum(Hogares)) * 100,
+    Celda = paste0(scales::comma(round(Hogares, 0)),
+                   " (", round(Porcentaje, 1), "%)")
+  ) %>%
+  select(area, tiene_mascota_etiqueta, Celda) %>%
+  pivot_wider(names_from = tiene_mascota_etiqueta, values_from = Celda) %>%
+  rename(`Área` = area)
+
+ft_mascota_area <- formato_flextable(tabla_mascota_area,
+                                     "Tabla 6. Tenencia de mascotas según área geográfica, 2025")
+print(ft_mascota_area)
+
+# Tabla 7: NBI según área (solo hogares CON mascota)
+tabla_nbi_area <- enaho_explorar %>%
+  filter(tiene_mascota == TRUE & !is.na(area)) %>%
+  select(conglome, estrato, factor_s, area, nbi1, nbi2, nbi3) %>%
+  pivot_longer(cols = c(nbi1, nbi2, nbi3),
+               names_to = "NBI", values_to = "Valor") %>%
+  mutate(NBI = case_when(
+    NBI == "nbi1" ~ "NBI 1: Vivienda inadecuada",
+    NBI == "nbi2" ~ "NBI 2: Hacinamiento",
+    NBI == "nbi3" ~ "NBI 3: Sin servicios higiénicos"
+  )) %>%
+  as_survey_design(ids = conglome, strata = estrato,
+                   weights = factor_s, nest = TRUE) %>%
+  group_by(area, NBI) %>%
+  summarise(Pct = survey_mean(Valor, vartype = NULL) * 100) %>%
+  mutate(Pct = paste0(round(Pct, 1), "%")) %>%
+  pivot_wider(names_from = area, values_from = Pct) %>%
+  rename(`Indicador NBI` = NBI)
+
+ft_nbi_area <- formato_flextable(tabla_nbi_area,
+                                 "Tabla 7. % de hogares con NBI insatisfecha según área geográfica, 2025")
+print(ft_nbi_area)
+
+# Gráfico 5: NBI por área
+plot_nbi_area <- enaho_explorar %>%
+  filter(tiene_mascota == TRUE & !is.na(area)) %>%
+  select(factor_s, area, nbi1, nbi2, nbi3) %>%
+  pivot_longer(cols = c(nbi1, nbi2, nbi3),
+               names_to = "NBI", values_to = "Valor") %>%
+  mutate(
+    NBI = case_when(
+      NBI == "nbi1" ~ "NBI 1:\nVivienda inadecuada",
+      NBI == "nbi2" ~ "NBI 2:\nHacinamiento",
+      NBI == "nbi3" ~ "NBI 3:\nSin servicios higiénicos"
+    ),
+    Valor = factor(Valor, levels = c(0, 1),
+                   labels = c("Satisfecha", "Insatisfecha"))
+  ) %>%
+  ggplot(aes(x = area, fill = Valor, weight = factor_s)) +
+  geom_bar(position = "fill", alpha = 0.85) +
+  facet_wrap(~NBI) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("Satisfecha" = "#4575B4", "Insatisfecha" = "#D73027")) +
+  labs(title   = "Gráfico 5. Condiciones de vivienda (NBI) en hogares con mascotas según área, 2025",
+       x       = "Área geográfica",
+       y       = "Proporción de hogares",
+       fill    = "Necesidad básica:",
+       caption = "Fuente: ENAHO 2025 - Módulo 118.") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+print(plot_nbi_area)
+

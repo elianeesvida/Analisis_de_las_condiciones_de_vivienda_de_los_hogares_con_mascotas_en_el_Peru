@@ -66,10 +66,11 @@ En el script 03, se cargó la base procesada más reciente y, de manera previa a
 ## CLASIFICAR
 En el script 05, se crean las siguientes variables analíticas:
 
-- **indice_cv:** Índice de Calidad de Vivienda construido mediante la suma simple de nbi1 + nbi2 + nbi3. Rango: 0 (ninguna NBI insatisfecha) a 3 (las tres NBI insatisfechas). Metodología: INEI.
-- **categoria_cv:** Categorización ordinal del índice. Combina la metodología del INEI (pobre por NBI = al menos una necesidad insatisfecha) con la lógica de clasificación propuesta por Ponce Sernicharo (2006): buena calidad (0 NBI), mala calidad (1 NBI) y muy mala calidad (2 o más NBI).
+- **indice_cv:** Índice de Calidad de Vivienda construido mediante la suma simple de nbi1 + nbi2 + nbi3. Rango: 0 (ninguna NBI) a 3 (las tres NBI). Metodología: INEI.
+- **categoria_cv:** Categorización ordinal del índice. Combina la metodología del INEI (pobre por NBI = al menos una necesidad insatisfecha) con la lógica de clasificación propuesta por Ponce (2006): buena calidad (0 NBI), mala calidad (1 NBI) y muy mala calidad (2 o más NBI).
 - **tipologia_mascota:** Clasificación MECE (Mutuamente Excluyente, Colectivamente Exhaustiva) de los hogares según el tipo de mascota que tienen: solo perro, solo gato, solo otra mascota, perro y gato, perro y otra mascota, gato y otra mascota, y perro gato y otra mascota.
 
 Como resultado del script 05, se exportó en HTML un reporte de las variables creadas (gtsummary), así como la cuarta base de datos procesada. De manera adicional, en el script 06 se utilizaron las variables analíticas creadas para hacer un nuevo EDA, con tablas y gráficos exportados a la carpeta "outputs_exploracion_analitica".
 
-
+## BIBLIOGRAFÍA
+- Ponce, G. (2006). Construcción de un Índice de Calidad de la Vivienda. *La vivienda en México: Escribiendo el futuro,* pp. 169-186. https://infonavit.smart-ed.mx/cgi-bin/koha/opac-retrieve-file.pl?id=27756b6382f90cbf5d68d36d81f4ecbf 

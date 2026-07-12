@@ -68,4 +68,25 @@ var_label(enaho_codebook$indice_cv) <- "Índice de Calidad de Vivienda (suma de 
 var_label(enaho_codebook$categoria_cv) <- "Categoría de Calidad de Vivienda (Buena, Mala, Muy mala)"
 var_label(enaho_codebook$tipologia_mascota) <- "Tipología MECE de Tenencia de Mascotas"
 
-
+# ==============================================================================
+# 3. DOCUMENTACIÓN DE DECISIONES METODOLÓGICAS---------------------------------
+# ==============================================================================
+dict_metadata <- list(
+  nbi1 = "Variable precalculada por el INEI en el Módulo 100. Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha). Indica si la vivienda tiene características físicas inadecuadas (paredes, pisos o techo de material precario).",
+  
+  nbi2 = "Variable precalculada por el INEI en el Módulo 100. Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha). Indica si el hogar se encuentra en condición de hacinamiento (más de 3.4 personas por habitación).",
+  
+  nbi3 = "Variable precalculada por el INEI en el Módulo 100. Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha). Indica si la vivienda carece de servicios higiénicos de ningún tipo.",
+  
+  tiene_mascota = "Variable construida a partir del Módulo 118. Toma el valor TRUE si algún miembro del hogar respondió '1' (Sí) en la pregunta P118B. Los NAs en esta variable representan hogares no elegibles para la sub-muestra del módulo 118, no hogares sin mascota.",
+  
+  area = "Variable construida a partir del estrato geográfico. Los estratos 1 a 6 corresponden a centros poblados urbanos de distintos tamaños (de 500 a más de 500,000 habitantes). Los estratos 7 y 8 corresponden a Áreas de Empadronamiento Rural (AER) Compuesto y Simple, respectivamente. Fuente: INEI.",
+  
+  factor_s = "Factor de expansión propio de la sub-muestra del módulo 118. Se utiliza en lugar del factor07 del módulo 100 porque la unidad de análisis es la sub-muestra de mascotas, que tiene un diseño muestral distinto al de la muestra principal de la ENAHO.",
+  
+  indice_cv = "Índice de Calidad de Vivienda construido mediante la suma simple de nbi1 + nbi2 + nbi3. Rango: 0 (ninguna NBI insatisfecha) a 3 (las tres NBI insatisfechas). Metodología: INEI (suma de necesidades básicas insatisfechas). Justificación: en el EDA se verificó que las tres variables presentan variabilidad suficiente (nbi1=5.4%, nbi2=3.2%, nbi3=4.4% insatisfechas), lo que valida su inclusión en el índice.",
+  
+  categoria_cv = "Categorización ordinal del Índice de Calidad de Vivienda. Combina dos referentes metodológicos: (1) el INEI, que define como pobre por NBI a todo hogar con al menos una necesidad básica insatisfecha; y (2) la lógica de clasificación ordinal propuesta por Ponce Sernicharo (2006). Categorías: Buena calidad (0 NBI insatisfechas), Mala calidad (1 NBI insatisfecha) y Muy mala calidad (2 o más NBI insatisfechas). Referencia: Ponce Sernicharo, G. (2006). Construcción de un Índice de Calidad de la Vivienda. En R. Coulomb (coord.), La vivienda en México: Escribiendo el futuro. México: Cámara de Diputados / CONAFOVI / UAM. pp. 169-186.",
+  
+  tipologia_mascota = "Clasificación MECE (Mutuamente Excluyente, Colectivamente Exhaustiva) de los hogares según el tipo de mascota que tienen. Se construye a partir del cruce de las variables tiene_perro, tiene_gato y tiene_otra_mascota. Categorías: Solo perro, Solo gato, Solo otra mascota, Perro y gato, Perro y otra mascota, Gato y otra mascota, y Perro gato y otra mascota."
+)

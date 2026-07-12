@@ -90,3 +90,18 @@ dict_metadata <- list(
   
   tipologia_mascota = "Clasificación MECE (Mutuamente Excluyente, Colectivamente Exhaustiva) de los hogares según el tipo de mascota que tienen. Se construye a partir del cruce de las variables tiene_perro, tiene_gato y tiene_otra_mascota. Categorías: Solo perro, Solo gato, Solo otra mascota, Perro y gato, Perro y otra mascota, Gato y otra mascota, y Perro gato y otra mascota."
 )
+
+# Aplicamos las descripciones a las columnas correspondientes
+for (var in names(dict_metadata)) {
+  attr(enaho_codebook[[var]], "description") <- dict_metadata[[var]]
+}
+
+# Metadatos a nivel de estudio
+metadata(enaho_codebook)$name <- "Base de Datos Analítica - Calidad de Vivienda de Hogares con Mascotas en el Perú, 2025"
+metadata(enaho_codebook)$description <- "Sub-muestra de la Encuesta Nacional de Hogares (ENAHO 2025) restringida a hogares que respondieron el módulo 118 (Tenencia de mascotas), aplicado entre julio y diciembre de 2025."
+metadata(enaho_codebook)$creator <- "Eliane Caceres"
+
+# Guardamos la base con los metadatos
+write_parquet(enaho_codebook,
+              here("datos", "procesados", "enaho_mascotas_final_030726.parquet"))
+

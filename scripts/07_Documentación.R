@@ -25,5 +25,27 @@ renv::snapshot()
 # Cargamos la base analítica final
 enaho_final <- read_parquet(here("datos", "procesados", "enaho_mascotas_analitica_030726.parquet"))
 
+# ==============================================================================
+# 1. SELECCIÓN DE VARIABLES PARA EL CODEBOOK-----------------------------------
+# ==============================================================================
+# Nos quedamos solo con las variables que usamos en el análisis
+enaho_codebook <- enaho_final %>%
+  filter(tiene_mascota == TRUE) %>%
+  select(
+    # Variables originales
+    nbi1, nbi2, nbi3,
+    tiene_mascota, tiene_perro, tiene_gato, tiene_otra_mascota,
+    area,
+    factor_s,
+    # Variables analíticas creadas
+    indice_cv,
+    categoria_cv,
+    tipologia_mascota
+  ) %>%
+  mutate(across(where(is.character), as.factor))
+
+# Exportamos como base final del proyecto
+write_parquet(enaho_codebook,
+              here("datos", "procesados", "enaho_mascotas_final_030726.parquet"))
 
 

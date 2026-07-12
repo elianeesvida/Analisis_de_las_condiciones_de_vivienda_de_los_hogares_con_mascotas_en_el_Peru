@@ -21,3 +21,9 @@ library(labelled)
 library(codebook)
 library(dataMaid)
 renv::snapshot()
+
+# Cargamos la base analítica final
+enaho_final <- read_parquet(here("datos", "procesados", "enaho_mascotas_analitica_030726.parquet"))
+
+
+

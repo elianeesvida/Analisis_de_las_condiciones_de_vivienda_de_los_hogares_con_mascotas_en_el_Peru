@@ -22,27 +22,33 @@ El directorio se organiza a través de la siguiente estructura de carpetas:
 ├── datos/                      # No se incluyen los datos en este repositorio debido a su peso
 │   ├── crudos/                 # Módulos originales de la ENAHO en formato .csv
 │   └── procesados/             # Bases procesadas en formato .parquet
-│       ├── enaho_2025_210626.parquet                      # Base consolidada resultado del join entre módulos (script 01)
-│       ├── enaho_mascotas_acondicionada_030726.parquet    # Base acondicionada resultado del script 02
-│       ├── enaho_mascotas_explorar_030726.parquet         # Base con etiquetas resultado del script 03
-│       └── enaho_mascotas_analitica_030726.parquet        # Base con variables analíticas resultado del script 04
+│       ├── enaho_2025_210626.parquet                       # Base consolidada resultado del join entre módulos (script 01)
+│       ├── enaho_mascotas_acondicionada_030726.parquet     # Base acondicionada resultado del script 02
+│       ├── enaho_mascotas_explorar_030726.parquet          # Base con etiquetas resultado del script 03
+│       ├── enaho_mascotas_analitica_030726.parquet         # Base con variables analíticas resultado del script 05
+│       └── enaho_mascotas_final_030726.parquet             # Base final con metadatos resultado del script 07
 ├── scripts/
 │   ├── 01_Carga_union_modulos.R       # Carga y cruce (joins) de los módulos 100 y 118
 │   ├── 02_Acondicionamiento.R         # Selección, renombrado, diagnóstico y tratamiento de NAs
 │   ├── 03_EDA.R                       # EDA univariado y bivariado de variables originales
-│   ├── 03_EDA_Mascotas.Rmd            # Informe descriptivo en RMarkdown
-│   ├── 04_Clasificacion.R             # Creación de variables analíticas
-│   └── 05_EDA_Analitico.R             # EDA de variables analíticas creadas
+│   ├── 04_Informe_Exploracion_Inicial.Rmd  # Informe descriptivo en RMarkdown
+│   ├── 05_Clasificacion.R             # Creación de variables analíticas
+│   ├── 06_EDA_Analitico.R             # EDA de variables analíticas creadas
+│   └── 07_Documentacion.R             # Metadatos y generación del codebook final
 ├── outputs/
-│   ├── outputs_exploracion_mascotas/      # Tablas y gráficos del EDA inicial (script 03)
-│   ├── outputs_exploracion_analitica/     # Tablas y gráficos del EDA analítico (script 05)
-│   ├── Grafico_NAs_Mascotas.png           # Gráfico de diagnóstico de NAs (script 02)
+│   ├── outputs_exploracion_mascotas/       # Tablas y gráficos del EDA inicial (script 03)
+│   ├── outputs_exploracion_analitica/      # Tablas y gráficos del EDA analítico (script 06)
+│   ├── Grafico_NAs_Mascotas.png            # Gráfico de diagnóstico de NAs (script 02)
 │   ├── Reporte_Datos_Perdidos_Mascotas.csv # Reporte tabular de NAs (script 02)
-│   └── CLASIFICAR_Reporte_VariablesCreadas.html  # Reporte de variables analíticas (script 04)
-├── renv/                       # Carpeta aislada del entorno local de paquetes
-├── renv.lock                   # Registro exacto de las versiones de las librerías
-├── .gitignore                  # Exclusión de datos masivos del repositorio
-└── [Nombre_del_Proyecto].Rproj # Archivo de inicialización del entorno R
+│   ├── CLASIFICAR_Reporte_VariablesCreadas.html  # Reporte de variables analíticas (script 05)
+│   └── CodeBook_codebook.html              # Libro de códigos final generado con el paquete codebook (script 07)
+├── docs/                        # Documentos de referencia del proyecto
+│   ├── Diccionario_2025.pdf     # Diccionario de datos de la ENAHO 2025
+│   └── Ponce_2006_Indice_Calidad_Vivienda.pdf  # Fuente bibliográfica utilizada para la construcción del índice de calidad de vivienda
+├── renv/                        # Carpeta aislada del entorno local de paquetes
+├── renv.lock                    # Registro exacto de las versiones de las librerías
+├── .gitignore                   # Exclusión de datos masivos del repositorio
+└── [Nombre_del_Proyecto].Rproj  # Archivo de inicialización del entorno R
 ```
 
 A continuación, se detalla las principales decisiones y acciones tomadas en cada paso del flujo de trabajo. Si se tienen dudas más específicas, por favor referirse al script correspondiente.
@@ -71,6 +77,9 @@ En el script 05, se crean las siguientes variables analíticas:
 - **tipologia_mascota:** Clasificación MECE (Mutuamente Excluyente, Colectivamente Exhaustiva) de los hogares según el tipo de mascota que tienen: solo perro, solo gato, solo otra mascota, perro y gato, perro y otra mascota, gato y otra mascota, y perro gato y otra mascota.
 
 Como resultado del script 05, se exportó en HTML un reporte de las variables creadas (gtsummary), así como la cuarta base de datos procesada. De manera adicional, en el script 06 se utilizaron las variables analíticas creadas para hacer un nuevo EDA, con tablas y gráficos exportados a la carpeta "outputs_exploracion_analitica".
+
+## DOCUMENTAR
+En el script 07, se realizó la depuración final de la base de datos, quedándonos con las variables utilizadas en el EDA de variables analíticas. Asimismo, se incluye etiquetas descriptivas y la fuente original de cada variable (su nombre en la ENAHO), así como metadatos con información sobre las decisiones metodológicas tomadas y la descripción de la creación de las variables analíticas. Con esta información, se generó el libro de códigos final utilizando el paquete `codebook`, exportado en formato HTML a la carpeta "outputs" (CodeBook_codebook.html). En este archivo se describe detalladamente el significado de las variables, las opciones de respuesta, su distribución y las decisiones metodológicas tomadas en cada etapa. Como parte de la documentación, en la carpeta "docs" se puede encontrar el diccionario de datos de la ENAHO 2025, así como la fuente bibliográfica utilizada para la construcción del índice de calidad de vivienda (Ponce Sernicharo, 2006).
 
 ## BIBLIOGRAFÍA
 - Ponce, G. (2006). Construcción de un Índice de Calidad de la Vivienda. *La vivienda en México: Escribiendo el futuro,* pp. 169-186. https://infonavit.smart-ed.mx/cgi-bin/koha/opac-retrieve-file.pl?id=27756b6382f90cbf5d68d36d81f4ecbf 

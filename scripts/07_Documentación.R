@@ -105,3 +105,10 @@ metadata(enaho_codebook)$creator <- "Eliane Caceres"
 write_parquet(enaho_codebook,
               here("datos", "procesados", "enaho_mascotas_final_030726.parquet"))
 
+# ==============================================================================
+# 4. GENERACIÓN DEL CODEBOOK---------------------------------------------------
+# ==============================================================================
+
+# Generamos el codebook con el paquete codebook (reporte detallado)
+codebook(enaho_codebook)
+

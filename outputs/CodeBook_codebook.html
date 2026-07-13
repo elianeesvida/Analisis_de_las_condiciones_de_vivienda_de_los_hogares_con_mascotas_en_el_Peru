@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Partial preview</title>
+
+<script src="index_files/header-attrs-2.31/header-attrs.js"></script>
+<script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="index_files/navigation-1.1/tabsets.js"></script>
+<link href="index_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="index_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="metadata" class="section level3">
+<h3>Metadata</h3>
+<div id="description" class="section level4">
+<h4>Description</h4>
+<p><strong>Dataset name</strong>: Base de Datos Analítica - Calidad de
+Vivienda de Hogares con Mascotas en el Perú, 2025</p>
+<p>Sub-muestra de la Encuesta Nacional de Hogares (ENAHO 2025)
+restringida a hogares que respondieron el módulo 118 (Tenencia de
+mascotas), aplicado entre julio y diciembre de 2025.</p>
+<details>
+<summary title="Expand this section to see some additional metadata in a structured format that is useful for search engines">
+Metadata for search engines
+</summary>
+<ul>
+<li><p><strong>Date published</strong>: 2026-07-12</p></li>
+<li><p><strong>Creator</strong>:</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="right">name</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Eliane Caceres</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">keywords</td>
+<td align="left">nbi1, nbi2, nbi3, tiene_mascota, tiene_perro,
+tiene_gato, tiene_otra_mascota, area, factor_s, indice_cv, categoria_cv,
+tipologia_mascota</td>
+</tr>
+</tbody>
+</table>
+</details>
+</div>
+</div>
+<div id="variables" class="section level2">
+<h2>Variables</h2>
+<div id="nbi1" class="section level3 tabset">
+<h3 class="tabset">nbi1</h3>
+<p>Vivienda con características físicas inadecuadas (Fuente: Módulo 100
+- ENAHO 2025)</p>
+<div id="nbi1_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_nbi1_distribution-28-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="nbi1_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="21%" />
+<col width="2%" />
+<col width="2%" />
+<col width="3%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="1%" />
+<col width="58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">median</th>
+<th align="left">max</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="left">hist</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">nbi1</td>
+<td align="left">Vivienda con características físicas inadecuadas
+(Fuente: Módulo 100 - ENAHO 2025)</td>
+<td align="left">numeric</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="right">0.0720737</td>
+<td align="right">0.2586333</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Variable precalculada por el INEI en el Módulo 100.
+Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha).
+Indica si la vivienda tiene características físicas inadecuadas
+(paredes, pisos o techo de material precario).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="nbi2" class="section level3 tabset">
+<h3 class="tabset">nbi2</h3>
+<p>Vivienda con hacinamiento (Fuente: Módulo 100 - ENAHO 2025)</p>
+<div id="nbi2_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_nbi2_distribution-41-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="nbi2_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="16%" />
+<col width="2%" />
+<col width="2%" />
+<col width="3%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="1%" />
+<col width="61%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">median</th>
+<th align="left">max</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="left">hist</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">nbi2</td>
+<td align="left">Vivienda con hacinamiento (Fuente: Módulo 100 - ENAHO
+2025)</td>
+<td align="left">numeric</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="right">0.039198</td>
+<td align="right">0.1940832</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Variable precalculada por el INEI en el Módulo 100.
+Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha).
+Indica si el hogar se encuentra en condición de hacinamiento (más de 3.4
+personas por habitación).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="nbi3" class="section level3 tabset">
+<h3 class="tabset">nbi3</h3>
+<p>Vivienda sin desagüe de ningún tipo (Fuente: Módulo 100 - ENAHO
+2025)</p>
+<div id="nbi3_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_nbi3_distribution-54-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="nbi3_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="20%" />
+<col width="2%" />
+<col width="2%" />
+<col width="4%" />
+<col width="1%" />
+<col width="2%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="1%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">median</th>
+<th align="left">max</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="left">hist</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">nbi3</td>
+<td align="left">Vivienda sin desagüe de ningún tipo (Fuente: Módulo 100
+- ENAHO 2025)</td>
+<td align="left">numeric</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="right">0.0677384</td>
+<td align="right">0.2513192</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Variable precalculada por el INEI en el Módulo 100.
+Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha).
+Indica si la vivienda carece de servicios higiénicos de ningún
+tipo.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="tiene_mascota" class="section level3 tabset">
+<h3 class="tabset">tiene_mascota</h3>
+<p>Hogar con al menos una mascota (Fuente: P118B - Módulo 118 - ENAHO
+2025)</p>
+<div id="tiene_mascota_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_tiene_mascota_distribution-67-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="tiene_mascota_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="3%" />
+<col width="18%" />
+<col width="2%" />
+<col width="2%" />
+<col width="3%" />
+<col width="2%" />
+<col width="1%" />
+<col width="64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">count</th>
+<th align="right">mean</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tiene_mascota</td>
+<td align="left">Hogar con al menos una mascota (Fuente: P118B - Módulo
+118 - ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">TRU: 5536</td>
+<td align="right">1</td>
+<td align="left">Variable construida a partir del Módulo 118. Toma el
+valor TRUE si algún miembro del hogar respondió ‘1’ (Sí) en la pregunta
+P118B. Los NAs en esta variable representan hogares no elegibles para la
+sub-muestra del módulo 118, no hogares sin mascota.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="tiene_perro" class="section level3 tabset">
+<h3 class="tabset">tiene_perro</h3>
+<p>Hogar con perro (Fuente: P118A1=1, P118B=1 - Módulo 118 - ENAHO
+2025)</p>
+<div id="tiene_perro_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_tiene_perro_distribution-80-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="tiene_perro_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table style="width:100%;">
+<colgroup>
+<col width="8%" />
+<col width="47%" />
+<col width="6%" />
+<col width="6%" />
+<col width="9%" />
+<col width="14%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">count</th>
+<th align="right">mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tiene_perro</td>
+<td align="left">Hogar con perro (Fuente: P118A1=1, P118B=1 - Módulo 118
+- ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">TRU: 4504, FAL: 1032</td>
+<td align="right">0.8135838</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="tiene_gato" class="section level3 tabset">
+<h3 class="tabset">tiene_gato</h3>
+<p>Hogar con gato (Fuente: P118A1=2, P118B=1 - Módulo 118 - ENAHO
+2025)</p>
+<div id="tiene_gato_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_tiene_gato_distribution-93-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="tiene_gato_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="47%" />
+<col width="6%" />
+<col width="6%" />
+<col width="9%" />
+<col width="14%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">count</th>
+<th align="right">mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tiene_gato</td>
+<td align="left">Hogar con gato (Fuente: P118A1=2, P118B=1 - Módulo 118
+- ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">TRU: 3024, FAL: 2512</td>
+<td align="right">0.5462428</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="tiene_otra_mascota" class="section level3 tabset">
+<h3 class="tabset">tiene_otra_mascota</h3>
+<p>Hogar con otra mascota (Fuente: P118A1=3, P118B=1 - Módulo 118 -
+ENAHO 2025)</p>
+<div id="tiene_otra_mascota_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_tiene_otra_mascota_distribution-106-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="tiene_otra_mascota_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="48%" />
+<col width="6%" />
+<col width="6%" />
+<col width="8%" />
+<col width="12%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">count</th>
+<th align="right">mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tiene_otra_mascota</td>
+<td align="left">Hogar con otra mascota (Fuente: P118A1=3, P118B=1 -
+Módulo 118 - ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">FAL: 5242, TRU: 294</td>
+<td align="right">0.0531069</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="area" class="section level3 tabset">
+<h3 class="tabset">area</h3>
+<p>Área geográfica del hogar (Urbano/Rural)</p>
+<div id="area_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_area_distribution-119-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="area_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="9%" />
+<col width="2%" />
+<col width="1%" />
+<col width="5%" />
+<col width="2%" />
+<col width="3%" />
+<col width="2%" />
+<col width="4%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="left">ordered</th>
+<th align="left">value_labels</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">n_unique</th>
+<th align="left">top_counts</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">area</td>
+<td align="left">Área geográfica del hogar (Urbano/Rural)</td>
+<td align="left">factor</td>
+<td align="left">FALSE</td>
+<td align="left">1. Urbano,<br>2. Rural</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="left">Urb: 3770, Rur: 1766</td>
+<td align="left">Variable construida a partir del estrato geográfico.
+Los estratos 1 a 6 corresponden a centros poblados urbanos de distintos
+tamaños (de 500 a más de 500,000 habitantes). Los estratos 7 y 8
+corresponden a Áreas de Empadronamiento Rural (AER) Compuesto y Simple,
+respectivamente. Fuente: INEI.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="factor_s" class="section level3 tabset">
+<h3 class="tabset">factor_s</h3>
+<p>Factor de expansión de la sub-muestra de mascotas (Fuente: FACTOR_S -
+Módulo 118 - ENAHO 2025)</p>
+<div id="factor_s_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_factor_s_distribution-132-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="factor_s_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="2%" />
+<col width="22%" />
+<col width="2%" />
+<col width="2%" />
+<col width="3%" />
+<col width="0%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="1%" />
+<col width="58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">median</th>
+<th align="left">max</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="left">hist</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor_s</td>
+<td align="left">Factor de expansión de la sub-muestra de mascotas
+(Fuente: FACTOR_S - Módulo 118 - ENAHO 2025)</td>
+<td align="left">numeric</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">35</td>
+<td align="left">484</td>
+<td align="left">2447</td>
+<td align="right">627.256</td>
+<td align="right">489.3077</td>
+<td align="left">▇▅▁▁▁</td>
+<td align="left">Factor de expansión propio de la sub-muestra del módulo
+118. Se utiliza en lugar del factor07 del módulo 100 porque la unidad de
+análisis es la sub-muestra de mascotas, que tiene un diseño muestral
+distinto al de la muestra principal de la ENAHO.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="indice_cv" class="section level3 tabset">
+<h3 class="tabset">indice_cv</h3>
+<p>Índice de Calidad de Vivienda (suma de NBI insatisfechas)</p>
+<div id="indice_cv_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_indice_cv_distribution-145-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="indice_cv_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="10%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="0%" />
+<col width="1%" />
+<col width="0%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">min</th>
+<th align="left">median</th>
+<th align="left">max</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="left">hist</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">indice_cv</td>
+<td align="left">Índice de Calidad de Vivienda (suma de NBI
+insatisfechas)</td>
+<td align="left">numeric</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">3</td>
+<td align="right">0.1790101</td>
+<td align="right">0.4501532</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Índice de Calidad de Vivienda construido mediante la
+suma simple de nbi1 + nbi2 + nbi3. Rango: 0 (ninguna NBI insatisfecha) a
+3 (las tres NBI insatisfechas). Metodología: INEI (suma de necesidades
+básicas insatisfechas). Justificación: en el EDA se verificó que las
+tres variables presentan variabilidad suficiente (nbi1=5.4%, nbi2=3.2%,
+nbi3=4.4% insatisfechas), lo que valida su inclusión en el índice.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="categoria_cv" class="section level3 tabset">
+<h3 class="tabset">categoria_cv</h3>
+<p>Categoría de Calidad de Vivienda (Buena, Mala, Muy mala)</p>
+<div id="categoria_cv_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_categoria_cv_distribution-158-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="categoria_cv_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="6%" />
+<col width="1%" />
+<col width="0%" />
+<col width="7%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="3%" />
+<col width="74%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="left">ordered</th>
+<th align="left">value_labels</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">n_unique</th>
+<th align="left">top_counts</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">categoria_cv</td>
+<td align="left">Categoría de Calidad de Vivienda (Buena, Mala, Muy
+mala)</td>
+<td align="left">factor</td>
+<td align="left">FALSE</td>
+<td align="left">1. Buena calidad,<br>2. Mala calidad,<br>3. Muy mala
+calidad</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">Bue: 4686, Mal: 722, Muy: 128</td>
+<td align="left">Categorización ordinal del Índice de Calidad de
+Vivienda. Combina dos referentes metodológicos: (1) el INEI, que define
+como pobre por NBI a todo hogar con al menos una necesidad básica
+insatisfecha; y (2) la lógica de clasificación ordinal propuesta por
+Ponce Sernicharo (2006). Categorías: Buena calidad (0 NBI
+insatisfechas), Mala calidad (1 NBI insatisfecha) y Muy mala calidad (2
+o más NBI insatisfechas). Referencia: Ponce Sernicharo, G. (2006).
+Construcción de un Índice de Calidad de la Vivienda. En R. Coulomb
+(coord.), La vivienda en México: Escribiendo el futuro. México: Cámara
+de Diputados / CONAFOVI / UAM. pp. 169-186.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="tipologia_mascota" class="section level3 tabset">
+<h3 class="tabset">tipologia_mascota</h3>
+<p>Tipología MECE de Tenencia de Mascotas</p>
+<div id="tipologia_mascota_distribution" class="section level4">
+<h4>Distribution</h4>
+<p>figure/cb_enaho_codebook_tipologia_mascota_distribution-171-1.pdf</p>
+<p>0 missing values.</p>
+</div>
+<div id="tipologia_mascota_summary" class="section level4">
+<h4>Summary statistics</h4>
+<table>
+<colgroup>
+<col width="2%" />
+<col width="5%" />
+<col width="1%" />
+<col width="1%" />
+<col width="24%" />
+<col width="1%" />
+<col width="2%" />
+<col width="1%" />
+<col width="6%" />
+<col width="53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="left">ordered</th>
+<th align="left">value_labels</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">n_unique</th>
+<th align="left">top_counts</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tipologia_mascota</td>
+<td align="left">Tipología MECE de Tenencia de Mascotas</td>
+<td align="left">factor</td>
+<td align="left">FALSE</td>
+<td align="left">1. Solo perro,<br>2. Solo gato,<br>3. Solo otra
+mascota,<br>4. Perro y gato,<br>5. Perro y otra mascota,<br>6. Gato y
+otra mascota,<br>7. Perro, gato y otra mascota</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="left">Sol: 2338, Per: 1967, Sol: 937, Per: 106</td>
+<td align="left">Clasificación MECE (Mutuamente Excluyente,
+Colectivamente Exhaustiva) de los hogares según el tipo de mascota que
+tienen. Se construye a partir del cruce de las variables tiene_perro,
+tiene_gato y tiene_otra_mascota. Categorías: Solo perro, Solo gato, Solo
+otra mascota, Perro y gato, Perro y otra mascota, Gato y otra mascota, y
+Perro gato y otra mascota.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="missingness-report" class="section level2">
+<h2>Missingness report</h2>
+</div>
+<div id="codebook-table" class="section level2">
+<h2>Codebook table</h2>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="8%" />
+<col width="0%" />
+<col width="0%" />
+<col width="14%" />
+<col width="0%" />
+<col width="1%" />
+<col width="0%" />
+<col width="3%" />
+<col width="1%" />
+<col width="0%" />
+<col width="0%" />
+<col width="0%" />
+<col width="1%" />
+<col width="1%" />
+<col width="0%" />
+<col width="57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">label</th>
+<th align="left">data_type</th>
+<th align="left">ordered</th>
+<th align="left">value_labels</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">n_unique</th>
+<th align="left">top_counts</th>
+<th align="left">count</th>
+<th align="left">min</th>
+<th align="left">median</th>
+<th align="left">max</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="left">hist</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="#nbi1">nbi1</a></td>
+<td align="left">Vivienda con características físicas inadecuadas
+(Fuente: Módulo 100 - ENAHO 2025)</td>
+<td align="left">numeric</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="right">0.0720737</td>
+<td align="right">0.2586333</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Variable precalculada por el INEI en el Módulo 100.
+Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha).
+Indica si la vivienda tiene características físicas inadecuadas
+(paredes, pisos o techo de material precario).</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="#nbi2">nbi2</a></td>
+<td align="left">Vivienda con hacinamiento (Fuente: Módulo 100 - ENAHO
+2025)</td>
+<td align="left">numeric</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="right">0.0391980</td>
+<td align="right">0.1940832</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Variable precalculada por el INEI en el Módulo 100.
+Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha).
+Indica si el hogar se encuentra en condición de hacinamiento (más de 3.4
+personas por habitación).</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="#nbi3">nbi3</a></td>
+<td align="left">Vivienda sin desagüe de ningún tipo (Fuente: Módulo 100
+- ENAHO 2025)</td>
+<td align="left">numeric</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="right">0.0677384</td>
+<td align="right">0.2513192</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Variable precalculada por el INEI en el Módulo 100.
+Toma el valor 0 (necesidad satisfecha) o 1 (necesidad insatisfecha).
+Indica si la vivienda carece de servicios higiénicos de ningún
+tipo.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="#tiene_mascota">tiene_mascota</a></td>
+<td align="left">Hogar con al menos una mascota (Fuente: P118B - Módulo
+118 - ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">TRU: 5536</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">1.0000000</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">Variable construida a partir del Módulo 118. Toma el
+valor TRUE si algún miembro del hogar respondió ‘1’ (Sí) en la pregunta
+P118B. Los NAs en esta variable representan hogares no elegibles para la
+sub-muestra del módulo 118, no hogares sin mascota.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="#tiene_perro">tiene_perro</a></td>
+<td align="left">Hogar con perro (Fuente: P118A1=1, P118B=1 - Módulo 118
+- ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">TRU: 4504, FAL: 1032</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0.8135838</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="#tiene_gato">tiene_gato</a></td>
+<td align="left">Hogar con gato (Fuente: P118A1=2, P118B=1 - Módulo 118
+- ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">TRU: 3024, FAL: 2512</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0.5462428</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td
+align="left"><a href="#tiene_otra_mascota">tiene_otra_mascota</a></td>
+<td align="left">Hogar con otra mascota (Fuente: P118A1=3, P118B=1 -
+Módulo 118 - ENAHO 2025)</td>
+<td align="left">logical</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">FAL: 5242, TRU: 294</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0.0531069</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="#area">area</a></td>
+<td align="left">Área geográfica del hogar (Urbano/Rural)</td>
+<td align="left">factor</td>
+<td align="left">FALSE</td>
+<td align="left">1. Urbano,<br>2. Rural</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="left">Urb: 3770, Rur: 1766</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">Variable construida a partir del estrato geográfico.
+Los estratos 1 a 6 corresponden a centros poblados urbanos de distintos
+tamaños (de 500 a más de 500,000 habitantes). Los estratos 7 y 8
+corresponden a Áreas de Empadronamiento Rural (AER) Compuesto y Simple,
+respectivamente. Fuente: INEI.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="#factor_s">factor_s</a></td>
+<td align="left">Factor de expansión de la sub-muestra de mascotas
+(Fuente: FACTOR_S - Módulo 118 - ENAHO 2025)</td>
+<td align="left">numeric</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">35</td>
+<td align="left">484</td>
+<td align="left">2447</td>
+<td align="right">627.2560275</td>
+<td align="right">489.3077016</td>
+<td align="left">▇▅▁▁▁</td>
+<td align="left">Factor de expansión propio de la sub-muestra del módulo
+118. Se utiliza en lugar del factor07 del módulo 100 porque la unidad de
+análisis es la sub-muestra de mascotas, que tiene un diseño muestral
+distinto al de la muestra principal de la ENAHO.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="#indice_cv">indice_cv</a></td>
+<td align="left">Índice de Calidad de Vivienda (suma de NBI
+insatisfechas)</td>
+<td align="left">numeric</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">3</td>
+<td align="right">0.1790101</td>
+<td align="right">0.4501532</td>
+<td align="left">▇▁▁▁▁</td>
+<td align="left">Índice de Calidad de Vivienda construido mediante la
+suma simple de nbi1 + nbi2 + nbi3. Rango: 0 (ninguna NBI insatisfecha) a
+3 (las tres NBI insatisfechas). Metodología: INEI (suma de necesidades
+básicas insatisfechas). Justificación: en el EDA se verificó que las
+tres variables presentan variabilidad suficiente (nbi1=5.4%, nbi2=3.2%,
+nbi3=4.4% insatisfechas), lo que valida su inclusión en el índice.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="#categoria_cv">categoria_cv</a></td>
+<td align="left">Categoría de Calidad de Vivienda (Buena, Mala, Muy
+mala)</td>
+<td align="left">factor</td>
+<td align="left">FALSE</td>
+<td align="left">1. Buena calidad,<br>2. Mala calidad,<br>3. Muy mala
+calidad</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">Bue: 4686, Mal: 722, Muy: 128</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">Categorización ordinal del Índice de Calidad de
+Vivienda. Combina dos referentes metodológicos: (1) el INEI, que define
+como pobre por NBI a todo hogar con al menos una necesidad básica
+insatisfecha; y (2) la lógica de clasificación ordinal propuesta por
+Ponce Sernicharo (2006). Categorías: Buena calidad (0 NBI
+insatisfechas), Mala calidad (1 NBI insatisfecha) y Muy mala calidad (2
+o más NBI insatisfechas). Referencia: Ponce Sernicharo, G. (2006).
+Construcción de un Índice de Calidad de la Vivienda. En R. Coulomb
+(coord.), La vivienda en México: Escribiendo el futuro. México: Cámara
+de Diputados / CONAFOVI / UAM. pp. 169-186.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="#tipologia_mascota">tipologia_mascota</a></td>
+<td align="left">Tipología MECE de Tenencia de Mascotas</td>
+<td align="left">factor</td>
+<td align="left">FALSE</td>
+<td align="left">1. Solo perro,<br>2. Solo gato,<br>3. Solo otra
+mascota,<br>4. Perro y gato,<br>5. Perro y otra mascota,<br>6. Gato y
+otra mascota,<br>7. Perro, gato y otra mascota</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="left">Sol: 2338, Per: 1967, Sol: 937, Per: 106</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">Clasificación MECE (Mutuamente Excluyente,
+Colectivamente Exhaustiva) de los hogares según el tipo de mascota que
+tienen. Se construye a partir del cruce de las variables tiene_perro,
+tiene_gato y tiene_otra_mascota. Categorías: Solo perro, Solo gato, Solo
+otra mascota, Perro y gato, Perro y otra mascota, Gato y otra mascota, y
+Perro gato y otra mascota.</td>
+</tr>
+</tbody>
+</table>
+<script type="application/ld+json">
+{
+  "name": "Base de Datos Analítica - Calidad de Vivienda de Hogares con Mascotas en el Perú, 2025",
+  "description": "Sub-muestra de la Encuesta Nacional de Hogares (ENAHO 2025) restringida a hogares que respondieron el módulo 118 (Tenencia de mascotas), aplicado entre julio y diciembre de 2025.\n\n\n## Table of variables\nThis table contains variable names, labels, and number of missing values.\nSee the complete codebook for more.\n\n|name               |label                                                                                          | n_missing|\n|:------------------|:----------------------------------------------------------------------------------------------|---------:|\n|nbi1               |Vivienda con características físicas inadecuadas (Fuente: Módulo 100 - ENAHO 2025)             |         0|\n|nbi2               |Vivienda con hacinamiento (Fuente: Módulo 100 - ENAHO 2025)                                    |         0|\n|nbi3               |Vivienda sin desagüe de ningún tipo (Fuente: Módulo 100 - ENAHO 2025)                          |         0|\n|tiene_mascota      |Hogar con al menos una mascota (Fuente: P118B - Módulo 118 - ENAHO 2025)                       |         0|\n|tiene_perro        |Hogar con perro (Fuente: P118A1=1, P118B=1 - Módulo 118 - ENAHO 2025)                          |         0|\n|tiene_gato         |Hogar con gato (Fuente: P118A1=2, P118B=1 - Módulo 118 - ENAHO 2025)                           |         0|\n|tiene_otra_mascota |Hogar con otra mascota (Fuente: P118A1=3, P118B=1 - Módulo 118 - ENAHO 2025)                   |         0|\n|area               |Área geográfica del hogar (Urbano/Rural)                                                       |         0|\n|factor_s           |Factor de expansión de la sub-muestra de mascotas (Fuente: FACTOR_S - Módulo 118 - ENAHO 2025) |         0|\n|indice_cv          |Índice de Calidad de Vivienda (suma de NBI insatisfechas)                                      |         0|\n|categoria_cv       |Categoría de Calidad de Vivienda (Buena, Mala, Muy mala)                                       |         0|\n|tipologia_mascota  |Tipología MECE de Tenencia de Mascotas                                                         |         0|\n\n### Note\nThis dataset was automatically described using the [codebook R package](https://rubenarslan.github.io/codebook/) (version 0.10.1).",
+  "creator": "Eliane Caceres",
+  "datePublished": "2026-07-12",
+  "keywords": ["nbi1", "nbi2", "nbi3", "tiene_mascota", "tiene_perro", "tiene_gato", "tiene_otra_mascota", "area", "factor_s", "indice_cv", "categoria_cv", "tipologia_mascota"],
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "variableMeasured": [
+    {
+      "description": "Vivienda con características físicas inadecuadas (Fuente: Módulo 100 - ENAHO 2025)",
+      "name": "nbi1",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Vivienda con hacinamiento (Fuente: Módulo 100 - ENAHO 2025)",
+      "name": "nbi2",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Vivienda sin desagüe de ningún tipo (Fuente: Módulo 100 - ENAHO 2025)",
+      "name": "nbi3",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Hogar con al menos una mascota (Fuente: P118B - Módulo 118 - ENAHO 2025)",
+      "name": "tiene_mascota",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "tiene_perro",
+      "description": "Hogar con perro (Fuente: P118A1=1, P118B=1 - Módulo 118 - ENAHO 2025)",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "tiene_gato",
+      "description": "Hogar con gato (Fuente: P118A1=2, P118B=1 - Módulo 118 - ENAHO 2025)",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "tiene_otra_mascota",
+      "description": "Hogar con otra mascota (Fuente: P118A1=3, P118B=1 - Módulo 118 - ENAHO 2025)",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Área geográfica del hogar (Urbano/Rural)",
+      "name": "area",
+      "value": "1. Urbano,\n2. Rural",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Factor de expansión de la sub-muestra de mascotas (Fuente: FACTOR_S - Módulo 118 - ENAHO 2025)",
+      "name": "factor_s",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Índice de Calidad de Vivienda (suma de NBI insatisfechas)",
+      "name": "indice_cv",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Categoría de Calidad de Vivienda (Buena, Mala, Muy mala)",
+      "name": "categoria_cv",
+      "value": "1. Buena calidad,\n2. Mala calidad,\n3. Muy mala calidad",
+      "@type": "propertyValue"
+    },
+    {
+      "description": "Tipología MECE de Tenencia de Mascotas",
+      "name": "tipologia_mascota",
+      "value": "1. Solo perro,\n2. Solo gato,\n3. Solo otra mascota,\n4. Perro y gato,\n5. Perro y otra mascota,\n6. Gato y otra mascota,\n7. Perro, gato y otra mascota",
+      "@type": "propertyValue"
+    }
+  ]
+}
+</script>
+<details>
+<summary>
+JSON-LD metadata
+</summary>
+<p>The following JSON-LD can be found by search engines, if you share
+this codebook publicly on the web.</p>
+<pre class="json"><code>{
+  &quot;name&quot;: &quot;Base de Datos Analítica - Calidad de Vivienda de Hogares con Mascotas en el Perú, 2025&quot;,
+  &quot;description&quot;: &quot;Sub-muestra de la Encuesta Nacional de Hogares (ENAHO 2025) restringida a hogares que respondieron el módulo 118 (Tenencia de mascotas), aplicado entre julio y diciembre de 2025.\n\n\n## Table of variables\nThis table contains variable names, labels, and number of missing values.\nSee the complete codebook for more.\n\n|name               |label                                                                                          | n_missing|\n|:------------------|:----------------------------------------------------------------------------------------------|---------:|\n|nbi1               |Vivienda con características físicas inadecuadas (Fuente: Módulo 100 - ENAHO 2025)             |         0|\n|nbi2               |Vivienda con hacinamiento (Fuente: Módulo 100 - ENAHO 2025)                                    |         0|\n|nbi3               |Vivienda sin desagüe de ningún tipo (Fuente: Módulo 100 - ENAHO 2025)                          |         0|\n|tiene_mascota      |Hogar con al menos una mascota (Fuente: P118B - Módulo 118 - ENAHO 2025)                       |         0|\n|tiene_perro        |Hogar con perro (Fuente: P118A1=1, P118B=1 - Módulo 118 - ENAHO 2025)                          |         0|\n|tiene_gato         |Hogar con gato (Fuente: P118A1=2, P118B=1 - Módulo 118 - ENAHO 2025)                           |         0|\n|tiene_otra_mascota |Hogar con otra mascota (Fuente: P118A1=3, P118B=1 - Módulo 118 - ENAHO 2025)                   |         0|\n|area               |Área geográfica del hogar (Urbano/Rural)                                                       |         0|\n|factor_s           |Factor de expansión de la sub-muestra de mascotas (Fuente: FACTOR_S - Módulo 118 - ENAHO 2025) |         0|\n|indice_cv          |Índice de Calidad de Vivienda (suma de NBI insatisfechas)                                      |         0|\n|categoria_cv       |Categoría de Calidad de Vivienda (Buena, Mala, Muy mala)                                       |         0|\n|tipologia_mascota  |Tipología MECE de Tenencia de Mascotas                                                         |         0|\n\n### Note\nThis dataset was automatically described using the [codebook R package](https://rubenarslan.github.io/codebook/) (version 0.10.1).&quot;,
+  &quot;creator&quot;: &quot;Eliane Caceres&quot;,
+  &quot;datePublished&quot;: &quot;2026-07-12&quot;,
+  &quot;keywords&quot;: [&quot;nbi1&quot;, &quot;nbi2&quot;, &quot;nbi3&quot;, &quot;tiene_mascota&quot;, &quot;tiene_perro&quot;, &quot;tiene_gato&quot;, &quot;tiene_otra_mascota&quot;, &quot;area&quot;, &quot;factor_s&quot;, &quot;indice_cv&quot;, &quot;categoria_cv&quot;, &quot;tipologia_mascota&quot;],
+  &quot;@context&quot;: &quot;https://schema.org/&quot;,
+  &quot;@type&quot;: &quot;Dataset&quot;,
+  &quot;variableMeasured&quot;: [
+    {
+      &quot;description&quot;: &quot;Vivienda con características físicas inadecuadas (Fuente: Módulo 100 - ENAHO 2025)&quot;,
+      &quot;name&quot;: &quot;nbi1&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Vivienda con hacinamiento (Fuente: Módulo 100 - ENAHO 2025)&quot;,
+      &quot;name&quot;: &quot;nbi2&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Vivienda sin desagüe de ningún tipo (Fuente: Módulo 100 - ENAHO 2025)&quot;,
+      &quot;name&quot;: &quot;nbi3&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Hogar con al menos una mascota (Fuente: P118B - Módulo 118 - ENAHO 2025)&quot;,
+      &quot;name&quot;: &quot;tiene_mascota&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;name&quot;: &quot;tiene_perro&quot;,
+      &quot;description&quot;: &quot;Hogar con perro (Fuente: P118A1=1, P118B=1 - Módulo 118 - ENAHO 2025)&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;name&quot;: &quot;tiene_gato&quot;,
+      &quot;description&quot;: &quot;Hogar con gato (Fuente: P118A1=2, P118B=1 - Módulo 118 - ENAHO 2025)&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;name&quot;: &quot;tiene_otra_mascota&quot;,
+      &quot;description&quot;: &quot;Hogar con otra mascota (Fuente: P118A1=3, P118B=1 - Módulo 118 - ENAHO 2025)&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Área geográfica del hogar (Urbano/Rural)&quot;,
+      &quot;name&quot;: &quot;area&quot;,
+      &quot;value&quot;: &quot;1. Urbano,\n2. Rural&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Factor de expansión de la sub-muestra de mascotas (Fuente: FACTOR_S - Módulo 118 - ENAHO 2025)&quot;,
+      &quot;name&quot;: &quot;factor_s&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Índice de Calidad de Vivienda (suma de NBI insatisfechas)&quot;,
+      &quot;name&quot;: &quot;indice_cv&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Categoría de Calidad de Vivienda (Buena, Mala, Muy mala)&quot;,
+      &quot;name&quot;: &quot;categoria_cv&quot;,
+      &quot;value&quot;: &quot;1. Buena calidad,\n2. Mala calidad,\n3. Muy mala calidad&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Tipología MECE de Tenencia de Mascotas&quot;,
+      &quot;name&quot;: &quot;tipologia_mascota&quot;,
+      &quot;value&quot;: &quot;1. Solo perro,\n2. Solo gato,\n3. Solo otra mascota,\n4. Perro y gato,\n5. Perro y otra mascota,\n6. Gato y otra mascota,\n7. Perro, gato y otra mascota&quot;,
+      &quot;@type&quot;: &quot;propertyValue&quot;
+    }
+  ]
+}`</code></pre>
+</details>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
